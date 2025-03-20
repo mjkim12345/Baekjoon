@@ -3,10 +3,9 @@
 using namespace std;
 
 
-int home[15][15];
 
 int main(){
- 
+    int home[15][15] = {0,};
     int c;
     cin >> c;
     for(int i=0; i<15; i++){
