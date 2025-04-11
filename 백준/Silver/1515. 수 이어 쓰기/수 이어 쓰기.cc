@@ -13,20 +13,19 @@ int main() {
     cin >> s;
     int num=0, num2=1;
 
-    while (num != s.length()) {
+    while (true) {
         string numString = to_string(num2);
 
-        for (int i=0; i < numString.length(); i++) {
-            if (numString[i] == s[num]) {
+        for (char c : numString) {
+            if (c == s[num]) {
                 num++;
-                if (num >= s.length()) {
+                if (num == s.length()) {
                     cout << num2;
-                    exit(0);
+                    return 0;
                 }
             }
         }
+        
         num2++;
     }
-
-    return 0;
 }
