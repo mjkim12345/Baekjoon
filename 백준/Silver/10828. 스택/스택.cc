@@ -1,44 +1,45 @@
 #include <iostream>
-#include <string>
 #include <stack>
+
 using namespace std;
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+int N;
+string s;
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    int N,number;
-    cin >> N;
-    string command;
-    stack<int> s;
+    stack<int> dat;
+    cin>>N;
 
-    for (int i = 0; i < N; i++) {
-        cin >> command;
+    for (int i=0; i<N; i++) {
+        cin >> s;
 
-        if (command == "push") {
-            cin >> number;
-            s.push(number);
-        }else if (command == "pop") {
-            if (s.empty()) {
-                cout << -1 << "\n";
+        if (s == "push") {
+            int m;
+            cin >> m;
+            dat.push(m);
+        }else if (s == "pop") {
+            if (dat.empty()) {
+                cout << -1<<"\n";
             }else {
-                cout << s.top() << "\n";
-                s.pop();
+                cout << dat.top() << "\n";
+                dat.pop();
             }
-        }else if (command == "size") {
-            cout << s.size() << "\n";
-        }else if (command == "empty") {
-            if (s.empty()) {
+        }else if (s == "size") {
+            cout << dat.size() << "\n";
+        }else if (s == "empty") {
+            if (dat.empty()) {
                 cout << 1 << "\n";
             }else {
                 cout << 0 << "\n";
             }
-        }else {
-            if (s.empty()) {
-                cout << "-1" << "\n";
+        }else if (s == "top") {
+            if (dat.empty()) {
+                cout << -1 << "\n";
             }else {
-                cout << s.top() << "\n";
+                cout << dat.top() << "\n";
             }
         }
     }
