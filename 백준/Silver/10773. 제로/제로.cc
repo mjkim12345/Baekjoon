@@ -1,30 +1,34 @@
 #include <iostream>
 #include <stack>
 
-
 using namespace std;
 
-
+long long N, sum;
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-    int k,a;
-    cin >> k;
-    stack<int> st;
-    for(int i=0; i<k; i++){
+    stack<int> dat;
+    cin>>N;
+
+    for (int i=0; i<N; i++) {
+        int a;
         cin >> a;
-        if(a == 0){
-            st.pop();
-        }else{
-            st.push(a);
+        if (a==0) {
+            dat.pop();
+        }else {
+            dat.push(a);
         }
     }
 
-    int sum=0;
-    while(!st.empty()){
-        sum += st.top();
-        st.pop();
-    }
+    int s = dat.size();
 
+    for (int i=0; i<s; i++) {
+        sum += dat.top();
+        dat.pop();
+    }
     cout << sum;
+
     return 0;
 }
