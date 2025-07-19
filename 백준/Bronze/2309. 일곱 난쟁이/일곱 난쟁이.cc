@@ -1,39 +1,26 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
+vector<int> a;
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-
-    int num[9];
-    int result[7];
     for (int i=0; i<9; i++) {
-        cin >> num[i];
+        int b;
+        cin >> b;
+        a.push_back(b);
     }
 
-    for (int i=0; i<8; i++) {
-        int total = 0;
-        for (int j=i+1; j<9; j++) {
-            total = 0;
-            for (int k=0,l=0; k<9; k++) {
-                if (k!=i && k!=j)
-                    result[l++] = num[k];
-            }
-            for (int l=0; l<7; l++) total += result[l];
+    sort(a.begin(),a.end());
 
-            if (total == 100) break;
+    do {
+        int sum=0;
+        for (int i=0; i<7; i++) {
+            sum+=a[i];
         }
-        if(total == 100) break;
-    }
-
-    sort(result , result+7);
+        if (sum==100) break;
+    }while (next_permutation(a.begin(),a.end()));
 
     for (int i=0; i<7; i++) {
-        cout << result[i] << "\n";
+        cout << a[i] << "\n";
     }
     return 0;
 }
