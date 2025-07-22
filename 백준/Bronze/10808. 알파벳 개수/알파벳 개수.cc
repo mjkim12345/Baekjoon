@@ -1,25 +1,16 @@
-#include <iostream>
-#include <utility>
-#include <cmath>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
+string s;
+int arr[26];
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
-    string s;
     cin >> s;
-    int N[26] = {0,};
 
-    for (auto c : s) {
-            N[c-'a']++;
-        }
-
-    for (int i : N) {
-        cout << i << " ";
+    for (int i=0; i<s.size(); i++) {
+        arr[s[i]-97]++;
     }
 
+    for (int i : arr) {
+        cout << i << " ";
+    }
     return 0;
 }
