@@ -1,23 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s;
-vector<char> word;
+string s,tmp;
 int main() {
     cin >> s;
+    tmp = s;
+    reverse(tmp.begin(), tmp.end());
 
-    for (int i=s.size()-1; i>=0; i--) {
-        word.push_back(s[i]);
-    }
-
-    for (int i=0; i<s.size(); i++) {
-        if (s[i]!=word[i]) {
-            cout << 0;
-            return 0;
-        }
-    }
-
-    cout << 1;
-
+    if (s!=tmp) cout <<0;
+    else cout << 1;
+    
     return 0;
 }
