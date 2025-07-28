@@ -1,41 +1,32 @@
-#include <iostream>
-#include <queue>
-#include <string>
-#include <algorithm>
-#include <map>
-#include <stack>
-#include <string.h>
-#include <utility>
-
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int N,M;
-string s[100001];
-map<string,int> num;
 string str;
+string book_a[100001];
+map<string,int> book;
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
+    cin.tie(NULL); cout.tie(NULL);
     cin >> N >> M;
 
-    for (int i = 1; i <= N; i++) {
+    for (int i=1; i<=N; i++) {
         cin >> str;
-        s[i] = str;
-        num.insert({str,i});
+        book_a[i] = str;
+        book.insert({str,i});
     }
 
-    for (int i=1; i<=M; i++) {
-        cin >> str;
-        if (isdigit(str[0])) {
-            cout << s[stoi(str)] << "\n";
+    for (int i=0; i<M; i++) {
+        string b;
+        cin >> b;
+
+        if (atoi(b.c_str())==0) {
+            cout << book[b] << "\n";
         }else {
-            cout << num.find(str)->second << "\n";
+            cout << book_a[atoi(b.c_str())] << "\n";
         }
     }
-
     return 0;
 }
