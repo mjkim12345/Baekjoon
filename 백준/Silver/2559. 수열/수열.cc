@@ -2,26 +2,20 @@
 
 using namespace std;
 
-int N,K,a;
-int prefix_s[100001];
-vector<int> sum;
+int n,k,temp, pre_sum[100001], ret = -10000004;
 int main() {
-    cin >> N >> K >> a;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
 
-    prefix_s[0] = a;
-
-    for (int i=1; i<N; i++) {
-        cin >> a;
-        prefix_s[i] = a + prefix_s[i-1];
+    cin >> n >> k;
+    for (int i=1; i<=n; i++) {
+        cin >> temp;
+        pre_sum[i] = pre_sum[i-1]+temp;
     }
 
-    sum.push_back(prefix_s[K-1]);
-    for (int i=K; i<N; i++) {
-        sum.push_back(prefix_s[i]-prefix_s[i-K]);
+    for (int i=k; i<=n; i++) {
+        ret = max(ret,pre_sum[i]-pre_sum[i-k]);
     }
-
-    sort(sum.begin(),sum.end());
-
-    cout << sum.back();
+    cout << ret;
     return 0;
 }
